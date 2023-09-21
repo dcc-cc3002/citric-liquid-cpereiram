@@ -1,6 +1,8 @@
 package cl.uchile.dcc.citric
 package citric
 
+import cl.uchile.dcc.citric.citric.panel.Panel
+
 import scala.collection.mutable.ArrayBuffer
 
 /** Represent a board in the game, where you can play.
