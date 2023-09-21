@@ -1,5 +1,5 @@
 package cl.uchile.dcc.citric
-package model
+package citric
 
 import scala.collection.mutable.ArrayBuffer
 
@@ -12,7 +12,7 @@ import scala.collection.mutable.ArrayBuffer
   * structures.
   *
   * @author [[https://github.com/r8vnhill Ignacio Slater M.]]
-  * @author [[https://github.com/YOUR-USERNAME YOUR NAME]]
+  * @author [[https://github.com/zelcris Cristóbal Pereira M.]]
   */
 trait Panel {
 
