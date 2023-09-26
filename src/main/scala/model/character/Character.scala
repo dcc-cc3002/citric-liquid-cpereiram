@@ -12,33 +12,36 @@ package model.character
  * - Be attacked by another Characters.
  * - Be knocked out by a Character.
  *
- * @author [[https://github.com/zelcris Cristóbal Pereira M.]]
+ * @constructor Create a new Character.
+ * @author <a href="https://github.com/zelcris">R8V</a>
+ * @version 1.2
+ * @since 1.0
  */
 trait Character {
-  /* Represents the name of the character. */
+  /** Represents the name of the character. */
   val name: String
 
-  /* Max hit points that a Character will have. */
+  /** Max hit points that a Character will have. */
   val maxHp: Int
 
-  /* Current hit point of a character.*/
+  /** Current hit point of a character.*/
   var hp: Int
 
-  /* Attack stat of a Character. */
+  /** Attack stat of a Character. */
   var attack: Int
 
-  /* Defense stat of a Character. */
+  /** Defense stat of a Character. */
   var defense: Int
 
-  /* Evasion stat of a Character. */
+  /** Evasion stat of a Character. */
   var evasion: Int
 
-  /* Indicates if a character is Knockout. */
+  /** Indicates if a character is Knockout. */
   var ko: Boolean
 
-  /* A character can get damage. */
+  /** A character can get damage. */
   def receiveDamage(damage: Int): Unit
 
-  /* A character can do damage. */
-  def doDamage(damage: Int): Unit
+  /** A character can do damage. */
+  def doDamage(other: Character, damage: Int): Unit
 }
