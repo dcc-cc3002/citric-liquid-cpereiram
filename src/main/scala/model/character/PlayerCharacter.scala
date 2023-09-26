@@ -39,15 +39,21 @@ import scala.util.Random
   * @author [[https://github.com/Seivier/ Vicente González B.]]
   * @author [[https://github.com/zelcris Cristóbal Pereira M.]]
   */
-class PlayerCharacter(val name: String,
-              val maxHp: Int,
-              var hp: Int,
-              val attack: Int,
-              val defense: Int,
-              val evasion: Int,
-              val ko: Boolean,
-              val randomNumberGenerator: Random = new Random())
-  extends AbstractCharacter {
+class PlayerCharacter( name: String,
+                       maxHp: Int,
+                       hp: Int,
+                       attack: Int,
+                       defense: Int,
+                       evasion: Int,
+                       ko: Boolean,
+                       val randomNumberGenerator: Random = new Random())
+  extends AbstractCharacter(name,
+                            maxHp,
+                            hp,
+                            attack,
+                            defense,
+                            evasion,
+                            ko) {
 
   /** Rolls a dice and returns a value between 1 to 6. */
   def rollDice(): Int = {
