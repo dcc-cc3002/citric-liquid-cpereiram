@@ -1,9 +1,11 @@
 package cl.uchile.dcc.citric
-package citric
+package model.board.panel
+
+import model.character.PlayerCharacter
 
 import scala.util.Random
 
-class HomePanelTest extends munit.FunSuite {
+class DropPanelTest extends munit.FunSuite {
   /* Current values of testPlayer. */
   private val name = "testPlayer"
   private val maxHp = 10
@@ -14,7 +16,7 @@ class HomePanelTest extends munit.FunSuite {
 
   /* Pre-definition of the player. */
   private var character: PlayerCharacter = _
-  private var panel: HomePanel = _
+  private var panel: DropPanel = _
 
   override def beforeEach(context: BeforeEach): Unit = {
     character = new PlayerCharacter(
@@ -26,4 +28,5 @@ class HomePanelTest extends munit.FunSuite {
       randomNumberGenerator
     )
   }
+
 }

@@ -1,9 +1,11 @@
 package cl.uchile.dcc.citric
-package citric
+package model.board.panel
+
+import model.character.PlayerCharacter
 
 import scala.util.Random
 
-class DropPanelTest extends munit.FunSuite {
+class NeutralPanelTest extends munit.FunSuite {
   /* Current values of testPlayer. */
   private val name = "testPlayer"
   private val maxHp = 10
@@ -14,7 +16,7 @@ class DropPanelTest extends munit.FunSuite {
 
   /* Pre-definition of the player. */
   private var character: PlayerCharacter = _
-  private var panel: DropPanel = _
+  private var panel: NeutralPanel = _
 
   override def beforeEach(context: BeforeEach): Unit = {
     character = new PlayerCharacter(
@@ -27,4 +29,31 @@ class DropPanelTest extends munit.FunSuite {
     )
   }
 
+  test("Un panel.") {
+
+  }
+
+  test("The hash code of a FireBakemon is consistent with equals") {
+    //assertEquals(new FireBakemon(name, hp).##, fireBakemon.##)
+  }
+
+  test("A player can be in the panel.") {
+
+  }
+
+  test("A player can get into the panel.") {
+
+  }
+
+  test("A player can leave the panel.") {
+
+  }
+
+  test("A player can be in the panel.") {
+
+  }
+
+  test("A player can be in the panel.") {
+
+  }
 }
