@@ -1,7 +1,7 @@
 package cl.uchile.dcc.citric
 package model.board.panel
 
-import cl.uchile.dcc.citric.model.character.PlayerCharacter
+import cl.uchile.dcc.citric.model.character.Character
 import scala.collection.mutable.ArrayBuffer
 
 /** Represents a single cell on a board, known as a Panel.
@@ -48,4 +48,16 @@ trait Panel {
     * @param player The character to remove from this panel.
     */
   def removeCharacter(player: Character): Unit
+
+  /** Add a specific panel next to the current panel.
+   *
+   * @param panel The panel to add from the list.
+   */
+  def addNextPanel(panel: Panel): Unit
+
+  /** Delete a specific panel, which is next to the current panel.
+   *
+   * @param panel The panel to remove from the list.
+   */
+  def removeNextPanel(panel: Panel): Unit
 }
