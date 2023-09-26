@@ -19,7 +19,7 @@ trait Character {
   val name: String
 
   /* Max hit points that a Character will have. */
-  val hpMax: Int
+  val maxHp: Int
 
   /* Current hit point of a character.*/
   var hp: Int

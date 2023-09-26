@@ -29,11 +29,11 @@ class NeutralPanelTest extends munit.FunSuite {
     )
   }
 
-  test("Un panel.") {
+  test("A panel can be equal to another one.") {
 
   }
 
-  test("The hash code of a FireBakemon is consistent with equals") {
+  test("The hash code of a NeutralPanel is consistent with equals") {
     //assertEquals(new FireBakemon(name, hp).##, fireBakemon.##)
   }
 

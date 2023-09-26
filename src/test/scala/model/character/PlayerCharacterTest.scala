@@ -11,9 +11,11 @@ class PlayerCharacterTest extends munit.FunSuite {
   */
   private val name = "testPlayer"
   private val maxHp = 10
+  private var hp = 5
   private val attack = 1
   private val defense = 1
   private val evasion = 1
+  private val ko = F
   private val randomNumberGenerator = new Random(11)
   /* Add any other constants you need here... */
 
@@ -31,9 +33,11 @@ class PlayerCharacterTest extends munit.FunSuite {
     character = new PlayerCharacter(
       name,
       maxHp,
+      hp,
       attack,
       defense,
       evasion,
+      ko,
       randomNumberGenerator
     )
   }
