@@ -59,3 +59,4 @@ class PlayerCharacter( name: String,
   def rollDice(): Int = {
     randomNumberGenerator.nextInt(6) + 1
   }
+}
