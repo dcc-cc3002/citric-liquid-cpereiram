@@ -13,7 +13,7 @@ package model.character
  * - Be knocked out by a Character.
  *
  * @constructor Create a new Character.
- * @author <a href="https://github.com/zelcris">R8V</a>
+ * @author [[https://github.com/zelcris Cristóbal Pereira M.]]
  * @version 1.2
  * @since 1.0
  */
