@@ -1,5 +1,5 @@
 package cl.uchile.dcc.citric
-package citric
+package model.character
 
 import scala.util.Random
 
@@ -25,9 +25,11 @@ import scala.util.Random
   *
   * @param name The name of the player. This is an identifier and should be unique.
   * @param maxHp The maximum health points a player can have. It represents the player's endurance.
+  * @param hp The current health points of a character.
   * @param attack The player's capability to deal damage to opponents.
   * @param defense The player's capability to resist or mitigate damage from opponents.
   * @param evasion The player's skill to completely avoid certain attacks.
+  * @param ko Indicates if a character is Knockout.
   * @param randomNumberGenerator A utility to generate random numbers. Defaults to a new `Random`
   *                              instance.
   *
@@ -37,12 +39,21 @@ import scala.util.Random
   * @author [[https://github.com/Seivier/ Vicente González B.]]
   * @author [[https://github.com/zelcris Cristóbal Pereira M.]]
   */
-class PlayerCharacter(val name: String,
-              val maxHp: Int,
-              val attack: Int,
-              val defense: Int,
-              val evasion: Int,
-              val randomNumberGenerator: Random = new Random()) {
+class PlayerCharacter( name: String,
+                       maxHp: Int,
+                       hp: Int,
+                       attack: Int,
+                       defense: Int,
+                       evasion: Int,
+                       ko: Boolean,
+                       val randomNumberGenerator: Random = new Random())
+  extends AbstractCharacter(name,
+                            maxHp,
+                            hp,
+                            attack,
+                            defense,
+                            evasion,
+                            ko) {
 
   /** Rolls a dice and returns a value between 1 to 6. */
   def rollDice(): Int = {
