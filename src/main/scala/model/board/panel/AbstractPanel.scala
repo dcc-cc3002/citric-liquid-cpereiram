@@ -2,6 +2,8 @@ package cl.uchile.dcc.citric
 package model.board.panel
 
 import model.character.Character
+
+import java.util.Objects
 import scala.collection.mutable.ArrayBuffer
 
 /** An abstract class representing a Panel.
@@ -18,7 +20,7 @@ import scala.collection.mutable.ArrayBuffer
  */
 abstract class AbstractPanel(val characters: ArrayBuffer[Character],
                              val nextPanels: ArrayBuffer[Panel])
-  extends Panel {
+  extends Panel with Equals {
   /// Documentation inherited from [[Panel]]
   override def addCharacter(player: Character): Unit = {
     characters += player
@@ -37,5 +39,26 @@ abstract class AbstractPanel(val characters: ArrayBuffer[Character],
   /// Documentation inherited from [[Panel]]
   override def removeNextPanel(panel: Panel): Unit = {
     nextPanels -= panel
+  }
+
+  /// Documentation inherited from [[Equals]]
+  override def canEqual(that: Any): Boolean = that.isInstanceOf[AbstractPanel]
+
+  /// Documentation inherited from [[Equals]]
+  override def equals(that: Any): Boolean = {
+    if (canEqual(that)) {
+      val other = that.asInstanceOf[AbstractPanel]
+        characters == other.characters &&
+        nextPanels == other.nextPanels
+    } else {
+      false
+    }
+  }
+
+  /// Documentation inherited from [[Any]]
+  override def hashCode: Int = {
+    Objects.hash(classOf[AbstractPanel],
+      characters,
+      nextPanels)
   }
 }
