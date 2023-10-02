@@ -1,6 +1,8 @@
 package cl.uchile.dcc.citric
 package model.character
 
+import cl.uchile.dcc.citric.model.Norma
+
 import java.util.Objects
 
 /** An abstract class representing a Character.
@@ -14,28 +16,30 @@ import java.util.Objects
  * @param defense The player's capability to resist or mitigate damage from opponents.
  * @param evasion The player's skill to completely avoid certain attacks.
  * @param ko Indicates if a character is Knockout.
+ * @param norma The current norma of the character.
  *
  * @constructor Create a new Character.
  * @author [[https://github.com/zelcris Cristóbal Pereira M.]]
- * @version 1.1
+ * @version 1.2
  * @since 1.0
  */
-abstract class AbstractCharacter(val name: String,
-                                 val maxHp: Int,
-                                 var hp: Int,
-                                 var attack: Int,
-                                 var defense: Int,
-                                 var evasion: Int,
-                                 var ko: Boolean)
+abstract class AbstractCharacter(protected val _name: String,
+                                 protected val _maxHp: Int,
+                                 protected var _hp: Int,
+                                 protected var _attack: Int,
+                                 protected var _defense: Int,
+                                 protected var _evasion: Int,
+                                 protected var _ko: Boolean,
+                                 protected var _norma: Norma)
   extends Character with Equals {
 
   /// Documentation inherited from [[Character]]
   override def receiveDamage(damage: Int): Unit = {
-    var health: Int = hp - damage
+    var health: Int = _hp - damage
     if (health < 0) {
       health = 0
     }
-    hp = health
+    _hp = health
   }
 
   /// Documentation inherited from [[Character]]
