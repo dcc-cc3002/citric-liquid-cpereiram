@@ -9,18 +9,18 @@ purpose is to serve as an educational tool, teaching foundational programming co
 
 ---
 
-## Tarea 1: Entrega Parcial 2
+## Tarea 2: Entrega Parcial 3
 
-En esta entrega, se comenzará a implementar la estructura inicial del tablero de juego.
+En esta entrega, se pide implementar los getters y setter de las distintas clases. Además se pide
+asignar de manera correcta los niveles de privacidad de valores, variables y métodos.
 
-Para ello, se creará un trait de `Tablero` y otro de `Panel`.
+Comenzando por los getters, se transformarán todos los campos de Character en protected, acompañado
+de su respectivo getter. Lo mismo para el AbstractCharacter, pero agregando las implementaciones de
+los setters.
 
-Luego, a estos le seguirán dos clases abstractas, `AbstractTablero` y `AbstractPanel`, 
-respectivamente, por medio de una herencia.
+Esto se debe repetir tanto para los Paneles, como para las Norma.
 
-De aquí, seguiendo con la herencia, se crearán las distintas subclases de Paneles, `NeutralPanel`,
-`HomePanel`, `BonusPanel`, `DropPanel`, `EncounterPanel`.
-
+Se espera avanzar lo mas posible en esta tarea, para luego ver detalles de los antes descrito.
 
 <div style="text-align:center;">
     <img src="https://i.creativecommons.org/l/by/4.0/88x31.png" alt="Creative Commons License">
