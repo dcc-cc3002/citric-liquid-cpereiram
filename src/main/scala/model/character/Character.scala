@@ -14,31 +14,55 @@ package model.character
  *
  * @constructor Create a new Character.
  * @author [[https://github.com/zelcris Cristóbal Pereira M.]]
- * @version 1.2
+ * @version 1.3
  * @since 1.0
  */
 trait Character {
+  //FIELDS
   /** Represents the name of the character. */
-  val name: String
+  protected val _name: String
 
   /** Max hit points that a Character will have. */
-  val maxHp: Int
+  protected val _maxHp: Int
 
   /** Current hit point of a character.*/
-  var hp: Int
+  protected var _hp: Int
 
   /** Attack stat of a Character. */
-  var attack: Int
+  protected var _attack: Int
 
   /** Defense stat of a Character. */
-  var defense: Int
+  protected var _defense: Int
 
   /** Evasion stat of a Character. */
-  var evasion: Int
+  protected var _evasion: Int
 
   /** Indicates if a character is Knockout. */
-  var ko: Boolean
+  protected var _ko: Boolean
 
+  //GETTERS
+  /** Returns the name of the character. */
+  def name: String = _name
+
+  /** Returns the maxHp of the character. */
+  def maxHp: Int = _maxHp
+
+  /** Returns the current HP of the character. */
+  def hp: Int = _hp
+
+  /** Returns the current attack stat of the character. */
+  def attack: Int = _attack
+
+  /** Returns the current defense stat of the character. */
+  def defense: Int = _defense
+
+  /** Returns the current evasion stat of the character. */
+  def evasion: Int = _evasion
+
+  /** Returns the state of the character. */
+  def ko: Boolean = _ko
+
+  //METHODS
   /** A character can get damage. */
   def receiveDamage(damage: Int): Unit
 
