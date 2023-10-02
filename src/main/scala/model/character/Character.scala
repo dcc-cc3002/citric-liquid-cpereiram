@@ -1,6 +1,8 @@
 package cl.uchile.dcc.citric
 package model.character
 
+import model.Norma
+
 /** Represent a Character in the game, who should be a player or a Wild Unit, .
  *
  * A character is represented with a name, a maximum amount of HP, a current amount
@@ -40,6 +42,9 @@ trait Character {
   /** Indicates if a character is Knockout. */
   protected var _ko: Boolean
 
+  /** The norma of a Character. */
+  protected var _norma: Norma
+
   //GETTERS
   /** Returns the name of the character. */
   def name: String = _name
@@ -61,6 +66,9 @@ trait Character {
 
   /** Returns the state of the character. */
   def ko: Boolean = _ko
+
+  /** Returns the current norma of the character. */
+  def norma: Norma = _norma
 
   //METHODS
   /** A character can get damage. */
