@@ -28,8 +28,8 @@ class BonusPanelTest extends munit.FunSuite {
   /* Pre-definition of the characters and panels. */
   private var character1: PlayerCharacter = _
   private var character2: PlayerCharacter = _
-  private var panel1: BonusPanel = _
-  private var panel2: BonusPanel = _
+  private var panel1: AbstractPanel = _
+  private var panel2: AbstractPanel = _
   nextPanels1 += panel1
   nextPanels2 += panel2
 
