@@ -32,25 +32,6 @@ abstract class AbstractCharacter(protected val _name: String,
                                  protected var _ko: Boolean,
                                  protected var _norma: Norma)
   extends Character with Equals {
-
-  /// Documentation inherited from [[Character]]
-  override def receiveDamage(damage: Int): Unit = {
-    var health: Int = _hp - damage
-    if (health < 0) {
-      health = 0
-    }
-    _hp = health
-  }
-
-  /// Documentation inherited from [[Character]]
-  override def doDamage(other: Character, damage: Int): Unit = {
-    var health: Int = other.hp - damage
-    if (health < 0) {
-      health = 0
-    }
-    other.hp = health
-  }
-
   /// Documentation inherited from [[Equals]]
   override def canEqual(that: Any): Boolean = that.isInstanceOf[AbstractCharacter]
 
@@ -80,5 +61,23 @@ abstract class AbstractCharacter(protected val _name: String,
       defense,
       evasion,
       ko)
+  }
+
+  /// Documentation inherited from [[Character]]
+  override def receiveDamage(damage: Int): Unit = {
+    var health: Int = _hp - damage
+    if (health < 0) {
+      health = 0
+    }
+    _hp = health
+  }
+
+  /// Documentation inherited from [[Character]]
+  override def doDamage(other: Character, damage: Int): Unit = {
+    var health: Int = other.hp - damage
+    if (health < 0) {
+      health = 0
+    }
+    other.receiveDamage(damage)
   }
 }
