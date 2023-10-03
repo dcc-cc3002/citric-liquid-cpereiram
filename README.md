@@ -9,12 +9,18 @@ purpose is to serve as an educational tool, teaching foundational programming co
 
 ---
 
-## For Students
+## Tarea 2: Entrega Parcial 3
 
-The remainder of this README is yours to complete. Take this opportunity to describe your
-contributions, the design decisions you've made, and any other information you deem necessary.
+En esta entrega, se pide implementar los getters y setter de las distintas clases. Además se pide
+asignar de manera correcta los niveles de privacidad de valores, variables y métodos.
 
+Comenzando por los getters, se transformarán todos los campos de Character en protected, acompañado
+de su respectivo getter. Lo mismo para el AbstractCharacter, pero agregando las implementaciones de
+los setters.
 
+Esto se debe repetir tanto para los Paneles, como para las Norma.
+
+Se espera avanzar lo mas posible en esta tarea, para luego ver detalles de los antes descrito.
 
 <div style="text-align:center;">
     <img src="https://i.creativecommons.org/l/by/4.0/88x31.png" alt="Creative Commons License">
