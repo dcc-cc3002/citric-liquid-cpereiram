@@ -1,6 +1,7 @@
 package cl.uchile.dcc.citric
 package model.character
 
+import cl.uchile.dcc.citric.model.norma.Norma
 import scala.util.Random
 
 /** The `PlayerCharacter` class represents a character or avatar in the game, encapsulating
@@ -46,6 +47,7 @@ class PlayerCharacter( name: String,
                        defense: Int,
                        evasion: Int,
                        ko: Boolean,
+                       norma: Norma,
                        val randomNumberGenerator: Random = new Random())
   extends AbstractCharacter(name,
                             maxHp,
@@ -53,7 +55,8 @@ class PlayerCharacter( name: String,
                             attack,
                             defense,
                             evasion,
-                            ko) {
+                            ko,
+                            norma) {
 
   /** Rolls a dice and returns a value between 1 to 6. */
   def rollDice(): Int = {
