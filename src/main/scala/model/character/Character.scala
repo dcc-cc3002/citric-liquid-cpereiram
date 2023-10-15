@@ -1,7 +1,7 @@
 package cl.uchile.dcc.citric
 package model.character
 
-import model.Norma
+import cl.uchile.dcc.citric.model.norma.Norma
 
 /** Represent a Character in the game, who should be a player or a Wild Unit, .
  *
