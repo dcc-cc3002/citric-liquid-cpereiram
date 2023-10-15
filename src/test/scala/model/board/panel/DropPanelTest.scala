@@ -3,6 +3,7 @@ package model.board.panel
 
 import cl.uchile.dcc.citric.model.character.PlayerCharacter
 import cl.uchile.dcc.citric.model.character.Character
+import cl.uchile.dcc.citric.model.norma.Norma1
 
 import scala.collection.mutable.ArrayBuffer
 import scala.util.Random
@@ -17,6 +18,7 @@ class DropPanelTest extends munit.FunSuite {
   private val defense = 1
   private val evasion = 1
   private val ko = false
+  private val norma = new Norma1()
   private val randomNumberGenerator = new Random(11)
 
   /* Current values of testPanel. */
@@ -43,6 +45,7 @@ class DropPanelTest extends munit.FunSuite {
       defense,
       evasion,
       ko,
+      norma,
       randomNumberGenerator)
     character2 = new PlayerCharacter(
       name2,
@@ -52,6 +55,7 @@ class DropPanelTest extends munit.FunSuite {
       defense,
       evasion,
       ko,
+      norma,
       randomNumberGenerator)
     panel1 = new DropPanel(characters1, nextPanels1)
     panel2 = new DropPanel(characters2, nextPanels2)
