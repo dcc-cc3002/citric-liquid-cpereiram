@@ -67,4 +67,21 @@ trait Character {
 
   /** Method that returns the state of the character. */
   def isKo(): Boolean
+
+  def toAttack(): =
+  {
+    // Código para el ataque
+  }
+
+  def toDefend():
+  ...=
+  {
+    // Código para defender
+  }
+
+  def toEvade():
+  ...=
+  {
+    // Código para evadir
+  }
 }
