@@ -1,6 +1,7 @@
 package cl.uchile.dcc.citric
 package model.character
 
+import cl.uchile.dcc.citric.model.norma.Norma1
 import scala.util.Random
 
 class PlayerCharacterTest extends munit.FunSuite {
@@ -16,6 +17,7 @@ class PlayerCharacterTest extends munit.FunSuite {
   private val defense = 1
   private val evasion = 1
   private val ko = false
+  private val norma = new Norma1()
   private val randomNumberGenerator = new Random(11)
   /* Add any other constants you need here... */
 
@@ -38,6 +40,7 @@ class PlayerCharacterTest extends munit.FunSuite {
       defense,
       evasion,
       ko,
+      norma,
       randomNumberGenerator
     )
   }
@@ -49,6 +52,7 @@ class PlayerCharacterTest extends munit.FunSuite {
     assertEquals(character.attack, attack)
     assertEquals(character.defense, defense)
     assertEquals(character.evasion, evasion)
+    assertEquals(character.norma, norma)
     assertEquals(character.ko, ko)
   }
 

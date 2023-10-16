@@ -11,7 +11,10 @@ import scala.collection.mutable.ArrayBuffer
  * A board its made of all kind of Panels, which are connected to each other.
  * It also have a list of players.
  *
+ * @constructor Create a new Board.
  * @author [[https://github.com/zelcris Cristóbal Pereira M.]]
+ * @version 1.2
+ * @since 1.0
  */
 trait Board {
   /** A list of players on the game.

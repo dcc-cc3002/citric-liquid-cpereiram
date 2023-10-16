@@ -1,8 +1,7 @@
 package cl.uchile.dcc.citric
 package model.character
 
-import cl.uchile.dcc.citric.model.Norma
-
+import cl.uchile.dcc.citric.model.norma.Norma
 import java.util.Objects
 
 /** An abstract class representing a Character.
