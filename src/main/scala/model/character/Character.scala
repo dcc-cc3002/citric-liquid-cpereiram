@@ -16,7 +16,7 @@ import cl.uchile.dcc.citric.model.norma.Norma
  *
  * @constructor Create a new Character.
  * @author [[https://github.com/zelcris Cristóbal Pereira M.]]
- * @version 1.3
+ * @version 1.4
  * @since 1.0
  */
 trait Character {
@@ -39,36 +39,24 @@ trait Character {
   /** Evasion stat of a Character. */
   protected var _evasion: Int
 
-  /** Indicates if a character is Knockout. */
-  protected var _ko: Boolean
-
-  /** The norma of a Character. */
-  protected var _norma: Norma
-
   //GETTERS
   /** Returns the name of the character. */
-  def name: String = _name
+  def name: String
 
   /** Returns the maxHp of the character. */
-  def maxHp: Int = _maxHp
+  def maxHp: Int
 
   /** Returns the current HP of the character. */
-  def hp: Int = _hp
+  def hp: Int
 
   /** Returns the current attack stat of the character. */
-  def attack: Int = _attack
+  def attack: Int
 
   /** Returns the current defense stat of the character. */
-  def defense: Int = _defense
+  def defense: Int
 
   /** Returns the current evasion stat of the character. */
-  def evasion: Int = _evasion
-
-  /** Returns the state of the character. */
-  def ko: Boolean = _ko
-
-  /** Returns the current norma of the character. */
-  def norma: Norma = _norma
+  def evasion: Int
 
   //METHODS
   /** A character can get damage. */
@@ -76,4 +64,7 @@ trait Character {
 
   /** A character can do damage. */
   def doDamage(other: Character, damage: Int): Unit
+
+  /** Method that returns the state of the character. */
+  def isKo(): Boolean
 }
