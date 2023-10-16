@@ -9,14 +9,43 @@ purpose is to serve as an educational tool, teaching foundational programming co
 
 ---
 
-## Tarea 2: Entrega Parcial 3
+## Tarea 2: Entrega Parcial 4
 
-En esta entrega, se pide implementar los getters y setter de las distintas clases. Además se pide
-asignar de manera correcta los niveles de privacidad de valores, variables y métodos.
+En esta entrega parcial, se necesitan implementar los métodos básicos para el combate además del efecto de
+algunos paneles.
 
-Comenzando por los getters, se transformarán todos los campos de Character en protected, acompañado
-de su respectivo getter. Lo mismo para el AbstractCharacter, pero agregando las implementaciones de
-los setters.
+### Métodos básicos a implementar
+
+A continuacion se presenta un esquema básico de la idea. (Tomado y modificado de EP4.md)
+
+```scala
+def toAttack(...): ... = {
+  // Código para el ataque
+}
+
+def toDefend(...): ... = {
+  // Código para defender
+}
+
+def toEvade(...): ... = {
+  // Código para evadir
+}
+```
+
+Además, se implementará el efecto de los paneles **Bonus** y **Drop**. Para esto, se creará
+un método ``apply`` en los paneles de la siguiente forma: (Tomado y modificado de EP4.md)
+
+```scala
+trait Panel {
+  def apply(...): ...
+}
+
+class BonusPanel extends Panel {
+  def apply(...): ... = {
+    // Código para el panel Bonus
+  }
+}
+```
 
 Esto se debe repetir tanto para los Paneles, como para las Norma.
 

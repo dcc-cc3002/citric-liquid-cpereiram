@@ -14,6 +14,8 @@ import scala.collection.mutable.ArrayBuffer
   *
   * @author [[https://github.com/r8vnhill Ignacio Slater M.]]
   * @author [[https://github.com/zelcris Cristóbal Pereira M.]]
+  * @version 1.3
+  * @since 1.0
   */
 trait Panel {
 
@@ -60,4 +62,12 @@ trait Panel {
    * @param panel The panel to remove from the list.
    */
   def removeNextPanel(panel: Panel): Unit
+
+  /** Applies the effect of the panel to a character.
+    *
+    * This method is invoked when a character lands on this panel.
+    *
+    * @param character The character to apply the effect to.
+    */
+  def apply(character: Character): Unit
 }
