@@ -14,8 +14,6 @@ import java.util.Objects
  * @param attack The player's capability to deal damage to opponents.
  * @param defense The player's capability to resist or mitigate damage from opponents.
  * @param evasion The player's skill to completely avoid certain attacks.
- * @param ko Indicates if a character is Knockout.
- * @param norma The current norma of the character.
  *
  * @constructor Create a new Character.
  * @author [[https://github.com/zelcris Cristóbal Pereira M.]]
@@ -27,10 +25,28 @@ abstract class AbstractCharacter(protected val _name: String,
                                  protected var _hp: Int,
                                  protected var _attack: Int,
                                  protected var _defense: Int,
-                                 protected var _evasion: Int,
-                                 protected var _ko: Boolean,
-                                 protected var _norma: Norma)
+                                 protected var _evasion: Int)
   extends Character with Equals {
+
+  //GETTERS
+  /// Documentation inherited from [[Character]]
+  override def name: String = _name
+
+  /// Documentation inherited from [[Character]]
+  override def maxHp: Int = _maxHp
+
+  /// Documentation inherited from [[Character]]
+  override def hp: Int = _hp
+
+  /// Documentation inherited from [[Character]]
+  override def attack: Int = _attack
+
+  /// Documentation inherited from [[Character]]
+  override def defense: Int = _defense
+
+  /// Documentation inherited from [[Character]]
+  override def evasion: Int = _evasion
+
   /// Documentation inherited from [[Equals]]
   override def canEqual(that: Any): Boolean = that.isInstanceOf[AbstractCharacter]
 
@@ -43,8 +59,7 @@ abstract class AbstractCharacter(protected val _name: String,
       hp == other.hp &&
       attack == other.attack &&
       defense == other.defense &&
-      evasion == other.evasion &&
-      ko == other.ko
+      evasion == other.evasion
     } else {
       false
     }
@@ -58,9 +73,10 @@ abstract class AbstractCharacter(protected val _name: String,
       hp,
       attack,
       defense,
-      evasion,
-      ko)
+      evasion)
   }
+
+
 
   /// Documentation inherited from [[Character]]
   override def receiveDamage(damage: Int): Unit = {
