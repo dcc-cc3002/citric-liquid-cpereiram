@@ -4,20 +4,29 @@ package model.norma
 /** Represent a Norma State (or Level) in the game, which should be a PlayerCharacter's
  * value.
  *
- * A character is represented with a name, a maximum amount of HP, a current amount
- * of HP, numbers that represents its attack, defense, evasion and a variable state
- * if a character is knockout.
- *
- * A character can:
- * - Attack other Characters.
- * - Be attacked by another Characters.
- * - Be knocked out by a Character.
+ * A Norma can:
+ * - Be checked.
+ * - Have a starMode or victoryMode activate.
  *
  * @constructor Create a new Norma.
  * @author [[https://github.com/zelcris Cristóbal Pereira M.]]
- * @version 1.1
+ * @version 1.2
  * @since 1.0
  */
 trait Norma {
+  /** Represent the activity of the norma mode.
+   * If it's true, the starMode is active, otherwise, victoryMode is active.
+   */
+  protected val _starMode: Boolean
 
+  /** Returns the activity of the norma mode.
+   * If it's true, the starMode is active, otherwise, victoryMode is active.
+   */
+  def starMode: Boolean
+
+  /** Check the current state of the norma.
+   *
+   * @return true if the norma is ready, false otherwise.
+   */
+  def NormaCheck(): Boolean
 }
