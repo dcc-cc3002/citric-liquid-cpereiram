@@ -63,15 +63,12 @@ class PlayerCharacter( name: String,
   def rollDice(): Int = {
     randomNumberGenerator.nextInt(6) + 1
   }
+  /** Returns the current norma of the character. */
+  def norma: Norma = _norma
+
+  /** Returns the current stars a character have. */
+  def stars: Int = _stars
+
+  /** Returns the current victories a character have. */
+  def victories: Int = _victories
 }
-
-/** The norma of a Character. */
-protected var _norma: Norma
-/** Returns the current norma of the character. */
-def norma: Norma = _norma
-
-/** Returns the current stars a character have. */
-def stars: Int = _stars
-
-/** Returns the current victories a character have. */
-def victories: Int = _victories
