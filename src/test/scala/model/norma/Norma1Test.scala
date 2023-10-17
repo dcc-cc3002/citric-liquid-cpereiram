@@ -6,51 +6,22 @@ import scala.util.Random
 class Norma1Test extends munit.FunSuite {
   /* Current values of testPlayer. */
   private val starMode1 = true
-  private val victorieMode1 = true
-  private val maxHp = 10
+  private val victoryMode1 = false
 
-
-  /* Current values of testPanel. */
-  private val characters1 = ArrayBuffer[Character]()
-  private val characters2 = ArrayBuffer[Character]()
-  private val nextPanels1 = ArrayBuffer[Panel]()
-  private val nextPanels2 = ArrayBuffer[Panel]()
-
-  /* Pre-definition of the characters and panels. */
-  private var character1: PlayerCharacter = _
-  private var character2: PlayerCharacter = _
-  private var panel1: NeutralPanel = _
-  private var panel2: NeutralPanel = _
-  nextPanels1 += panel1
-  nextPanels2 += panel2
-
+  /* Pre-definition of the norma. */
+  private var norma1_1: Norma1 = _
+  private var norma1_2: Norma1 = _
 
   override def beforeEach(context: BeforeEach): Unit = {
-    character1 = new PlayerCharacter(
-      name1,
-      maxHp,
-      hp,
-      attack,
-      defense,
-      evasion,
-      ko,
-      randomNumberGenerator)
-    character2 = new PlayerCharacter(
-      name2,
-      maxHp,
-      hp,
-      attack,
-      defense,
-      evasion,
-      ko,
-      randomNumberGenerator)
-    panel1 = new NeutralPanel(characters1, nextPanels1)
-    panel2 = new NeutralPanel(characters2, nextPanels2)
+    norma1_1 = new Norma1(starMode1)
+    norma1_2 = new Norma1(victoryMode1)
   }
 
-
   test("A Norma1 has params") {
-
+    assertEquals(norma1_1.starMode, starMode1)
+    assertEquals(norma1_2.starMode, victoryMode1)
+    assertEquals(norma1_1.starMode, victoryMode1)
+    assertEquals(norma1_2.starMode, starMode1)
   }
 
   test("The hash code of a Norma1 is consistent with equals") {
