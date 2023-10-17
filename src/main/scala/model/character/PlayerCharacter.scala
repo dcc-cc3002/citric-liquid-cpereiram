@@ -59,9 +59,6 @@ class PlayerCharacter( name: String,
                             defense,
                             evasion) {
 
-  /** The norma of a Character. */
-  protected var _norma: Norma
-
   /** Rolls a dice and returns a value between 1 to 6. */
   def rollDice(): Int = {
     randomNumberGenerator.nextInt(6) + 1
@@ -72,3 +69,9 @@ class PlayerCharacter( name: String,
 protected var _norma: Norma
 /** Returns the current norma of the character. */
 def norma: Norma = _norma
+
+/** Returns the current stars a character have. */
+def stars: Int = _stars
+
+/** Returns the current victories a character have. */
+def victories: Int = _victories
