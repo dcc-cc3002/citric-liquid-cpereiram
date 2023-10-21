@@ -16,8 +16,9 @@ class PlayerCharacterTest extends munit.FunSuite {
   private val attack = 1
   private val defense = 1
   private val evasion = 1
-  private val ko = false
-  private val norma = new Norma1()
+  private val norma = new Norma1(true)
+  private val stars = 0
+  private val victories = 0
   private val randomNumberGenerator = new Random(11)
   /* Add any other constants you need here... */
 
@@ -39,10 +40,10 @@ class PlayerCharacterTest extends munit.FunSuite {
       attack,
       defense,
       evasion,
-      ko,
       norma,
-      randomNumberGenerator
-    )
+      stars,
+      victories,
+      randomNumberGenerator)
   }
 
   test("A character should have correctly set their attributes") {
@@ -53,7 +54,8 @@ class PlayerCharacterTest extends munit.FunSuite {
     assertEquals(character.defense, defense)
     assertEquals(character.evasion, evasion)
     assertEquals(character.norma, norma)
-    assertEquals(character.ko, ko)
+    assertEquals(character.stars, stars)
+    assertEquals(character.victories, victories)
   }
 
   test("A character should be able to roll a dice") {
@@ -63,6 +65,6 @@ class PlayerCharacterTest extends munit.FunSuite {
   }
 
   test("A PlayerCharacter could be equal to another with the same attributes values.") {
-    assertEquals(new PlayerCharacter(name, maxHp, hp, attack, defense, evasion, ko, new Random(11)), character)
+    assertEquals(new PlayerCharacter(name, maxHp, hp, attack, defense, evasion, norma, stars, victories, new Random(11)), character)
   }
 }
