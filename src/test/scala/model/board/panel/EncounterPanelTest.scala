@@ -4,6 +4,8 @@ package model.board.panel
 import model.character.PlayerCharacter
 import model.character.Character
 
+import cl.uchile.dcc.citric.model.norma.{Norma, Norma1}
+
 import scala.collection.mutable.ArrayBuffer
 import scala.util.Random
 
@@ -16,7 +18,9 @@ class EncounterPanelTest extends munit.FunSuite {
   private val attack = 1
   private val defense = 1
   private val evasion = 1
-  private val ko = false
+  private val norma: Norma = new Norma1(true)
+  private val stars = 0
+  private val victories = 0
   private val randomNumberGenerator = new Random(11)
 
   /* Current values of testPanel. */
@@ -28,8 +32,8 @@ class EncounterPanelTest extends munit.FunSuite {
   /* Pre-definition of the characters and panels. */
   private var character1: PlayerCharacter = _
   private var character2: PlayerCharacter = _
-  private var panel1: EncounterPanel = _
-  private var panel2: EncounterPanel = _
+  private var panel1: AbstractPanel = _
+  private var panel2: AbstractPanel = _
   nextPanels1 += panel1
   nextPanels2 += panel2
 
@@ -42,7 +46,9 @@ class EncounterPanelTest extends munit.FunSuite {
       attack,
       defense,
       evasion,
-      ko,
+      norma,
+      stars,
+      victories,
       randomNumberGenerator)
     character2 = new PlayerCharacter(
       name2,
@@ -51,10 +57,12 @@ class EncounterPanelTest extends munit.FunSuite {
       attack,
       defense,
       evasion,
-      ko,
+      norma,
+      stars,
+      victories,
       randomNumberGenerator)
-    panel1 = new EncounterPanel(characters1, nextPanels1)
-    panel2 = new EncounterPanel(characters2, nextPanels2)
+    panel1 = new BonusPanel(characters1, nextPanels1)
+    panel2 = new BonusPanel(characters2, nextPanels2)
   }
 
   test("A NeutralPanel has params") {
