@@ -71,4 +71,13 @@ class PlayerCharacter( name: String,
 
   /** Returns the current victories a character have. */
   def victories: Int = _victories
+
+  /** Method that returns the state of the character. */
+  override def isKo(): Boolean = ???
+
+  override def toAttack(): Unit = ???
+
+  override def toDefend(): Unit = ???
+
+  override def toEvade(): Unit = ???
 }
