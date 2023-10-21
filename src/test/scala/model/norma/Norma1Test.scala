@@ -17,8 +17,10 @@ class Norma1Test extends munit.FunSuite {
   private val attack = 1
   private val defense = 1
   private val evasion = 1
-  private val stars = 0
-  private val victories = 0
+  private val stars1 = 10
+  private val stars2 = 0
+  private val victories1 = 0
+  private val victories2 = 1
   private val randomNumberGenerator = new Random(11)
 
   /* Pre-definition of the norma and player. */
@@ -38,8 +40,8 @@ class Norma1Test extends munit.FunSuite {
       defense,
       evasion,
       norma1_1,
-      stars,
-      victories,
+      stars1,
+      victories1,
       randomNumberGenerator
     )
     player2 = new PlayerCharacter(
@@ -50,8 +52,8 @@ class Norma1Test extends munit.FunSuite {
       defense,
       evasion,
       norma1_2,
-      stars,
-      victories,
+      stars2,
+      victories2,
       randomNumberGenerator
     )
   }
@@ -72,9 +74,12 @@ class Norma1Test extends munit.FunSuite {
     assertEquals(norma1_1, norma1_1)
     assertEquals(norma1_1, new Norma1(starMode1))
     assertNotEquals(norma1_1, norma1_2)
+    assert(!norma1_1.equals(player1))
   }
 
   test("A Norma1 can be checked with normaCheck") {
-    
+    assert(player1.norma.normaCheck(player1),true)
+    assert(player2.norma.normaCheck(player2),true)
+
   }
 }
