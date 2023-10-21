@@ -1,6 +1,8 @@
 package cl.uchile.dcc.citric
 package model.norma
 
+import model.character.PlayerCharacter
+
 /** Represent a Norma State (or Level) in the game, which should be a PlayerCharacter's
  * value.
  *
@@ -28,5 +30,17 @@ trait Norma {
    *
    * @return true if the norma is ready, false otherwise.
    */
-  def NormaCheck(): Boolean
+  def normaCheck(p: PlayerCharacter): Boolean
+  /*
+  def norma1Check(n: Norma1): Boolean
+
+
+  def norma2Check(n: Norma2): Boolean
+
+  def norma3Check(n: Norma3): Boolean
+
+  def norma4Check(n: Norma4): Boolean
+
+  def norma5Check(n: Norma5): Boolean
+  */
 }
