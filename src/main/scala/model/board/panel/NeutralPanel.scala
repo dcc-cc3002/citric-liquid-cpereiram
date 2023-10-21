@@ -27,5 +27,10 @@ class NeutralPanel(characters: ArrayBuffer[Character],
   override def hashCode: Int = {
     Objects.hash(classOf[NeutralPanel], characters, nextPanels)
   }
+
+  /// Documentation inherited from [[Panel]]
+  override def apply(character: Character): Unit = {
+
+  }
 }
 

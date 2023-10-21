@@ -27,4 +27,9 @@ class DropPanel(characters: ArrayBuffer[Character],
   override def hashCode: Int = {
     Objects.hash(classOf[DropPanel], characters, nextPanels)
   }
+
+  /// Documentation inherited from [[Panel]]
+  override def apply(character: Character): Unit = {
+
+  }
 }

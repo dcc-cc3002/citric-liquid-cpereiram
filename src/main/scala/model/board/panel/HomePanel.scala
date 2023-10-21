@@ -28,4 +28,9 @@ class HomePanel(characters: ArrayBuffer[Character],
   override def hashCode: Int = {
     Objects.hash(classOf[HomePanel], characters, nextPanels)
   }
+
+  /// Documentation inherited from [[Panel]]
+  override def apply(character: Character): Unit = {
+
+  }
 }
