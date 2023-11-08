@@ -10,37 +10,62 @@ import model.character.PlayerCharacter
  * - Be checked.
  * - Have a starMode or victoryMode activate.
  *
+ * FIELDS:
+ * - starMode: Boolean
+ * - starsRequired: Int
+ * - victoriesRequired: Int
+ *
  * @constructor Create a new Norma.
  * @author [[https://github.com/zelcris Cristóbal Pereira M.]]
- * @version 1.2
+ * @version 1.3
  * @since 1.0
  */
 trait Norma {
+
+  //FIELDS
   /** Represent the activity of the norma mode.
    * If it's true, the starMode is active, otherwise, victoryMode is active.
    */
   protected val _starMode: Boolean
 
+  /** Represent the amount of stars required to upgrade the norma.
+   * If the starMode is active, this value is used, otherwise, victoriesRequired is used.
+   */
+  protected val _starsRequired: Int
+
+  /** Represent the amount of victories required to upgrade the norma
+   * If the starMode is inactive, this value is used, otherwise, starsRequired is used.
+   */
+  protected val _victoriesRequired: Int
+
+  /** Represents the next norma of the character. */
+  protected var _nextNorma: Norma
+
+
+  //GETTERS
   /** Returns the activity of the norma mode.
    * If it's true, the starMode is active, otherwise, victoryMode is active.
    */
   def starMode: Boolean
 
-  /** Check the current state of the norma.
-   *
-   * @return true if the norma is ready, false otherwise.
+  /** Returns the amount of stars required to upgrade the norma.
+   * If the starMode is active, this value is used, otherwise, victoriesRequired is used.
    */
-  def normaCheck(p: PlayerCharacter): Boolean
-  /*
-  def norma1Check(n: Norma1): Boolean
+  def starsRequired: Int
 
+  /** Returns the amount of victories required to upgrade the norma
+   * If the starMode is inactive, this value is used, otherwise, starsRequired is used.
+   */
+  def victoriesRequired: Int
 
-  def norma2Check(n: Norma2): Boolean
+  /** Returns the next norma of the character. */
+  def nextNorma: Norma
 
-  def norma3Check(n: Norma3): Boolean
+  //SETTERS
+  /** Sets the next norma of the character. */
+  def nextNorma_(newNorma: Norma): Unit
 
-  def norma4Check(n: Norma4): Boolean
-
-  def norma5Check(n: Norma5): Boolean
-  */
+  //METHODS
+  /** Checks the state of the current norma of a Player. */
+  def check(character: PlayerCharacter): Boolean
 }
