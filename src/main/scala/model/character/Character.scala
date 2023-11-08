@@ -16,7 +16,7 @@ import cl.uchile.dcc.citric.model.norma.Norma
  *
  * @constructor Create a new Character.
  * @author [[https://github.com/zelcris Cristóbal Pereira M.]]
- * @version 1.4
+ * @version 1.5
  * @since 1.0
  */
 trait Character {
@@ -26,6 +26,9 @@ trait Character {
 
   /** Max hit points that a Character will have. */
   protected val _maxHp: Int
+
+  /** Current stars of the Character. */
+  protected var _stars: Int
 
   /** Current hit point of a character.*/
   protected var _hp: Int
@@ -39,12 +42,16 @@ trait Character {
   /** Evasion stat of a Character. */
   protected var _evasion: Int
 
+
   //GETTERS
   /** Returns the name of the character. */
   def name: String
 
   /** Returns the maxHp of the character. */
   def maxHp: Int
+
+  /** Returns the current amount of stars of the character. */
+  def stars: Int
 
   /** Returns the current HP of the character. */
   def hp: Int
@@ -58,20 +65,35 @@ trait Character {
   /** Returns the current evasion stat of the character. */
   def evasion: Int
 
-  //METHODS
-  /** A character can get damage. */
-  def receiveDamage(damage: Int): Unit
 
+  //SETTERS
+  /** Set the current amount of stars of the character. */
+  def stars_(newStars: Int): Unit
+
+  /** Set the current HP of the character. */
+  def hp_(newHp: Int): Unit
+
+  /** Set the current attack stat of the character. */
+  def attack_(newAttack: Int): Unit
+
+  /** Set the current defense stat of the character. */
+  def defense_(newDefense: Int): Unit
+
+  /** Set the current evasion stat of the character. */
+  def evasion_(newEvasion: Int): Unit
+
+
+  //METHODS
   /** A character can do damage. */
   def doDamage(other: Character, damage: Int): Unit
 
   /** Method that returns the state of the character. */
   def isKo(): Boolean
 
+  /** Method */
   def toAttack(): Unit
 
   def toDefend(): Unit
-
 
   def toEvade(): Unit
 
