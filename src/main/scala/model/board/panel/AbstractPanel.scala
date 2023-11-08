@@ -40,25 +40,4 @@ abstract class AbstractPanel(val characters: ArrayBuffer[Character],
   override def removeNextPanel(panel: Panel): Unit = {
     nextPanels -= panel
   }
-
-  /// Documentation inherited from [[Equals]]
-  override def canEqual(that: Any): Boolean = that.isInstanceOf[AbstractPanel]
-
-  /// Documentation inherited from [[Equals]]
-  override def equals(that: Any): Boolean = {
-    if (canEqual(that)) {
-      val other = that.asInstanceOf[AbstractPanel]
-        characters == other.characters &&
-        nextPanels == other.nextPanels
-    } else {
-      false
-    }
-  }
-
-  /// Documentation inherited from [[Any]]
-  override def hashCode: Int = {
-    Objects.hash(classOf[AbstractPanel],
-      characters,
-      nextPanels)
-  }
 }
