@@ -1,7 +1,8 @@
 package cl.uchile.dcc.citric
 package model.board.panel
 
-import cl.uchile.dcc.citric.model.character.Character
+import cl.uchile.dcc.citric.model.character.{Character, PlayerCharacter}
+
 import scala.collection.mutable.ArrayBuffer
 
 /** Represents a single cell on a board, known as a Panel.
@@ -69,5 +70,5 @@ trait Panel {
     *
     * @param character The character to apply the effect to.
     */
-  def apply(character: Character): Unit
+  def apply(character: PlayerCharacter): Unit
 }
