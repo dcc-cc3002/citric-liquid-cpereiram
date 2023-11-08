@@ -10,23 +10,22 @@ import java.util.Objects
  *
  * @param name The name of the player. This is an identifier and should be unique.
  * @param maxHp The maximum health points a player can have. It represents the player's endurance.
- * @param hp The current health points of a character.
- * @param attack The player's capability to deal damage to opponents.
- * @param defense The player's capability to resist or mitigate damage from opponents.
- * @param evasion The player's skill to completely avoid certain attacks.
+ * @param stars The amount of stars a player has. Begins with 0.
  *
  * @constructor Create a new Character.
  * @author [[https://github.com/zelcris Cristóbal Pereira M.]]
- * @version 1.2
+ * @version 1.3
  * @since 1.0
  */
 abstract class AbstractCharacter(protected val _name: String,
                                  protected val _maxHp: Int,
-                                 protected var _hp: Int,
-                                 protected var _attack: Int,
-                                 protected var _defense: Int,
-                                 protected var _evasion: Int)
-  extends Character with Equals {
+                                 protected var _stars: Int = 0)
+  extends Character {
+
+  protected var _hp: Int
+  protected var _attack: Int
+  protected var _defense: Int
+  protected var _evasion: Int
 
   //GETTERS
   /// Documentation inherited from [[Character]]
@@ -34,6 +33,9 @@ abstract class AbstractCharacter(protected val _name: String,
 
   /// Documentation inherited from [[Character]]
   override def maxHp: Int = _maxHp
+
+  /// Documentation inherited from [[Character]]
+  override def stars: Int = _stars
 
   /// Documentation inherited from [[Character]]
   override def hp: Int = _hp
@@ -47,52 +49,46 @@ abstract class AbstractCharacter(protected val _name: String,
   /// Documentation inherited from [[Character]]
   override def evasion: Int = _evasion
 
-  /// Documentation inherited from [[Equals]]
-  override def canEqual(that: Any): Boolean = that.isInstanceOf[AbstractCharacter]
 
-  /// Documentation inherited from [[Equals]]
-  override def equals(that: Any): Boolean = {
-    if (canEqual(that)) {
-      val other = that.asInstanceOf[AbstractCharacter]
-      name == other.name &&
-      maxHp == other.maxHp &&
-      hp == other.hp &&
-      attack == other.attack &&
-      defense == other.defense &&
-      evasion == other.evasion
-    } else {
-      false
-    }
+  //SETTERS
+  /// Documentation inherited from [[Character]]
+  override def stars_(newStars: Int): Unit = {
+    _stars = newStars
   }
-
-  /// Documentation inherited from [[Any]]
-  override def hashCode: Int = {
-    Objects.hash(classOf[AbstractCharacter],
-      name,
-      maxHp,
-      hp,
-      attack,
-      defense,
-      evasion)
-  }
-
-
 
   /// Documentation inherited from [[Character]]
-  override def receiveDamage(damage: Int): Unit = {
-    var health: Int = _hp - damage
-    if (health < 0) {
-      health = 0
-    }
-    _hp = health
+  override def hp_(newHp: Int): Unit = {
+    _hp = newHp
   }
 
+  /// Documentation inherited from [[Character]]
+  override def attack_(newAttack: Int): Unit = {
+    _attack = newAttack
+  }
+
+  /// Documentation inherited from [[Character]]
+  override def defense_(newDefense: Int): Unit = {
+    _defense = newDefense
+  }
+
+  /// Documentation inherited from [[Character]]
+  override def evasion_(newEvasion: Int): Unit = {
+    _evasion = newEvasion
+  }
+
+
+  //METHODS
   /// Documentation inherited from [[Character]]
   override def doDamage(other: Character, damage: Int): Unit = {
     var health: Int = other.hp - damage
     if (health < 0) {
       health = 0
     }
-    other.receiveDamage(damage)
+    other.hp_(health)
+  }
+
+  /// Documentation inherited from [[Character]]
+  override def isKo(): Boolean = {
+    _hp == 0
   }
 }
