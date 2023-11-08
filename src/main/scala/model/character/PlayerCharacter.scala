@@ -2,6 +2,8 @@ package cl.uchile.dcc.citric
 package model.character
 
 import cl.uchile.dcc.citric.model.norma.Norma
+
+import java.util.Objects
 import scala.util.Random
 
 /** The `PlayerCharacter` class represents a character or avatar in the game, encapsulating
@@ -30,8 +32,8 @@ import scala.util.Random
  * @param attack The player's capability to deal damage to opponents.
  * @param defense The player's capability to resist or mitigate damage from opponents.
  * @param evasion The player's skill to completely avoid certain attacks.
- * @param norma The current norma of the character.
  * @param stars The current stars a character have.
+ * @param norma The current norma of the character.
  * @param victories The current victories a character have.
  * @param randomNumberGenerator A utility to generate random numbers. Defaults to a new `Random`
  *                              instance.
@@ -44,40 +46,93 @@ import scala.util.Random
  */
 class PlayerCharacter( name: String,
                        maxHp: Int,
-                       hp: Int,
-                       attack: Int,
-                       defense: Int,
-                       evasion: Int,
-                       protected val _norma: Norma,
-                       protected val _stars: Int,
-                       protected val _victories: Int,
+                       override protected var _hp: Int,
+                       override protected var _attack: Int,
+                       override protected var _defense: Int,
+                       override protected var _evasion: Int,
+                       protected var _norma: Norma,
+                       stars: Int,
+                       protected var _victories: Int,
                        protected val randomNumberGenerator: Random = new Random())
   extends AbstractCharacter(name,
                             maxHp,
-                            hp,
-                            attack,
-                            defense,
-                            evasion) {
+                            stars) with Equals{
 
-  /** Rolls a dice and returns a value between 1 to 6. */
-  def rollDice(): Int = {
-    randomNumberGenerator.nextInt(6) + 1
-  }
+  //GETTERS
   /** Returns the current norma of the character. */
   def norma: Norma = _norma
-
-  /** Returns the current stars a character have. */
-  def stars: Int = _stars
 
   /** Returns the current victories a character have. */
   def victories: Int = _victories
 
-  /** Method that returns the state of the character. */
-  override def isKo(): Boolean = ???
+
+  //SETTERS
+  /** Sets the current norma of the character. */
+  def norma_(newNorma: Norma): Unit = {
+    _norma = newNorma
+  }
+
+  /** Sets the current victories a character have. */
+  def victories_(newVictories: Int): Unit = {
+    _victories = newVictories
+  }
+
+
+  //EQUALS
+  /// Documentation inherited from [[Equals]]
+  override def canEqual(that: Any): Boolean = that.isInstanceOf[PlayerCharacter]
+
+  /// Documentation inherited from [[Equals]]
+  override def equals(that: Any): Boolean = {
+    if (canEqual(that)) {
+      val other = that.asInstanceOf[PlayerCharacter]
+        name == other.name &&
+        maxHp == other.maxHp &&
+        hp == other.hp &&
+        attack == other.attack &&
+        defense == other.defense &&
+        evasion == other.evasion &&
+        norma == other.norma &&
+        stars == other.stars &&
+        victories == other.victories
+    } else {
+      false
+    }
+  }
+
+  /// Documentation inherited from [[Any]]
+  override def hashCode: Int = {
+    Objects.hash(classOf[PlayerCharacter],
+      name,
+      maxHp,
+      hp,
+      attack,
+      defense,
+      evasion,
+      norma,
+      stars,
+      victories)
+  }
+
+
+  //METHODS
+  /** Rolls a dice and returns a value between 1 to 6. */
+  def rollDice(): Int = {
+    randomNumberGenerator.nextInt(6) + 1
+  }
+
+  /** Checks if the character has achieved the norma.
+   * @return true if the character has achieved the norma, false otherwise.
+   * */
+  def normaCheck(): Boolean = {
+    norma.check(this)
+  }
 
   override def toAttack(): Unit = ???
 
   override def toDefend(): Unit = ???
 
   override def toEvade(): Unit = ???
+
+
 }
