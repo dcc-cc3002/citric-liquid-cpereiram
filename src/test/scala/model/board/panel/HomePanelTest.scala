@@ -120,4 +120,12 @@ class HomePanelTest extends munit.FunSuite {
     //panel1 = []
     assertEquals(panel1.nextPanels, ArrayBuffer[Panel]())
   }
+
+  test("A HomePanel will apply its effect, NormaCheck, to a character") {
+    panel1.apply(character1)
+    assertEquals(character1.hp, maxHp)
+    assertEquals(character1.norma, norma)
+    assertEquals(character1.stars, stars)
+    assertEquals(character1.victories, victories)
+  }
 }
