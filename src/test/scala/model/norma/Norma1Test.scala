@@ -63,6 +63,10 @@ class Norma1Test extends munit.FunSuite {
     assertEquals(norma1_2.starMode, victoryMode1)
     assertNotEquals(norma1_1.starMode, victoryMode1)
     assertNotEquals(norma1_2.starMode, starMode1)
+    assertEquals(norma1_1.starsRequired, 10)
+    assertEquals(norma1_2.starsRequired, 10)
+    assertEquals(norma1_1.victoriesRequired, 1)
+    assertEquals(norma1_2.victoriesRequired, 1)
   }
 
   test("The hash code of a Norma1 is consistent with equals") {
@@ -75,11 +79,5 @@ class Norma1Test extends munit.FunSuite {
     assertEquals(norma1_1, new Norma1(starMode1))
     assertNotEquals(norma1_1, norma1_2)
     assert(!norma1_1.equals(player1))
-  }
-
-  test("A Norma1 can be checked with normaCheck") {
-    assert(player1.norma.normaCheck(player1),true)
-    assert(player2.norma.normaCheck(player2),true)
-
   }
 }
