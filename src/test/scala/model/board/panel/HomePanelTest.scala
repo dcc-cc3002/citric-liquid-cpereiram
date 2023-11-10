@@ -3,7 +3,7 @@ package model.board.panel
 
 import cl.uchile.dcc.citric.model.character.PlayerCharacter
 import cl.uchile.dcc.citric.model.character.Character
-import cl.uchile.dcc.citric.model.norma.{Norma, Norma1}
+import cl.uchile.dcc.citric.model.norma.{Norma, Norma1, Norma2}
 
 import scala.collection.mutable.ArrayBuffer
 import scala.util.Random
@@ -17,7 +17,8 @@ class HomePanelTest extends munit.FunSuite {
   private val attack = 1
   private val defense = 1
   private val evasion = 1
-  private val norma: Norma = new Norma1(true)
+  private val norma: Norma1 = new Norma1(true)
+  private val norma2: Norma = new Norma2(true)
   private val stars = 0
   private val victories = 0
   private val randomNumberGenerator = new Random(11)
@@ -122,10 +123,22 @@ class HomePanelTest extends munit.FunSuite {
   }
 
   test("A HomePanel will apply its effect, NormaCheck, to a character") {
+    assertEquals(character1.hp, hp)
+    //hp = 5
+    //stars = 0
     panel1.apply(character1)
+    //should heal up
     assertEquals(character1.hp, maxHp)
+    //hp = 10
+    //stars = 0 != 10 then everything is the same
     assertEquals(character1.norma, norma)
     assertEquals(character1.stars, stars)
     assertEquals(character1.victories, victories)
+    character1.stars_(10)
+    //stars = 10 NormaCheck should be true
+    panel1.apply(character1)
+    assertEquals(character1.stars, 10)
+    //the norma should change up.
+    assertNotEquals(character1.norma, norma2)
   }
 }

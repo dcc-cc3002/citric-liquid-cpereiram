@@ -24,7 +24,7 @@ class EncounterPanelTest extends munit.FunSuite {
   private val randomNumberGenerator = new Random(11)
 
   /* Definition of the characters */
-  private val character1: Character = new PlayerCharacter(
+  private val character1: PlayerCharacter = new PlayerCharacter(
     name1,
     maxHp,
     hp,
@@ -118,5 +118,20 @@ class EncounterPanelTest extends munit.FunSuite {
     panel1.removeNextPanel(panel2)
     //panel1 = []
     assertEquals(panel1.nextPanels, ArrayBuffer[Panel]())
+  }
+
+  test("A EncounterPanel can apply an effect (None) on a player") {
+    panel1.apply(character1)
+    assertEquals(character1, new PlayerCharacter(
+      name1,
+      maxHp,
+      hp,
+      attack,
+      defense,
+      evasion,
+      norma,
+      stars,
+      victories,
+      randomNumberGenerator))
   }
 }

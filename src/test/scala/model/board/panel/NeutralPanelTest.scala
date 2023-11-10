@@ -24,7 +24,7 @@ class NeutralPanelTest extends munit.FunSuite {
   private val randomNumberGenerator = new Random(11)
 
   /* Definition of the characters */
-  private val character1: Character = new PlayerCharacter(
+  private val character1: PlayerCharacter = new PlayerCharacter(
     name1,
     maxHp,
     hp,
