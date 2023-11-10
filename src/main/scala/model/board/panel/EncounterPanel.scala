@@ -1,7 +1,7 @@
 package cl.uchile.dcc.citric
 package model.board.panel
 
-import model.character.Character
+import model.character.{Character, PlayerCharacter}
 
 import java.util.Objects
 import scala.collection.mutable.ArrayBuffer
@@ -30,7 +30,7 @@ class EncounterPanel(characters: ArrayBuffer[Character],
   }
 
   /// Documentation inherited from [[Panel]]
-  override def apply(character: Character): Unit = {
+  override def apply(character: PlayerCharacter): Unit = {
 
   }
 }
