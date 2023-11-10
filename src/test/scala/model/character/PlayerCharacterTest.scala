@@ -111,12 +111,12 @@ class PlayerCharacterTest extends munit.FunSuite {
   }
 
   test("A Player can do damage to another Character") {
-    character.doDamage(character2, 1)
-    assertEquals(character2.hp, 4)
-    character.doDamage(character2, 4)
-    assertEquals(character2.hp, 0)
-    character.doDamage(character2, 1)
-    //Should be an exception
-    assertEquals(character2.hp, 0)
+    //character2.hp = 5, gonna defend
+    //ayuda esto es random, no se como testearlo xd
+    character.toAttack(character2, true)
+    assert(character2.hp < 5)
+    //character.hp = 5, gonna evade
+    character2.toAttack(character, false)
+    assert(character2.hp <= 5)
   }
 }
