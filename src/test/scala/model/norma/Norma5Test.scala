@@ -23,6 +23,7 @@ class Norma5Test extends munit.FunSuite {
   private val victories2 = 1
   private val randomNumberGenerator = new Random(11)
 
+
   /* Pre-definition of the norma and player. */
   private var norma5_1: Norma5 = _
   private var norma5_2: Norma5 = _

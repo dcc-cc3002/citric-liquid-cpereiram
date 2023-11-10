@@ -22,6 +22,8 @@ class Norma4Test extends munit.FunSuite {
   private val victories1 = 0
   private val victories2 = 1
   private val randomNumberGenerator = new Random(11)
+  private val norma5_1 = new Norma5(starMode1)
+  private val norma5_2 = new Norma5(victoryMode1)
 
   /* Pre-definition of the norma and player. */
   private var norma4_1: Norma4 = _
@@ -79,6 +81,13 @@ class Norma4Test extends munit.FunSuite {
     assertEquals(norma4_1, new Norma4(starMode1))
     assertNotEquals(norma4_1, norma4_2)
     assert(!norma4_1.equals(player1))
+  }
+
+  test("A nextNorma can be changed.") {
+    norma4_1.nextNorma_(norma5_2)
+    assertEquals(norma4_1.nextNorma, norma5_2)
+    norma4_2.nextNorma_(norma5_1)
+    assertEquals(norma4_2.nextNorma, norma5_1)
   }
 
 }
