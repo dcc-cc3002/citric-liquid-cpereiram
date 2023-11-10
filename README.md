@@ -9,47 +9,23 @@ purpose is to serve as an educational tool, teaching foundational programming co
 
 ---
 
-## Tarea 2: Entrega Parcial 4
+## Tarea 2: Entrega Final
 
-En esta entrega parcial, se necesitan implementar los métodos básicos para el combate además del efecto de
-algunos paneles.
+En esta entrega final, se implementaron las siguientes funcionalidades:
 
-### Métodos básicos a implementar
+* El efecto del Neutral Panel, utilizando el método `apply()`.
 
-A continuacion se presenta un esquema básico de la idea. (Tomado y modificado de EP4.md)
+* El efecto del Home Panel, *Norma Check*, utilizando una interacción desencadenada por
+* `apply()`, `normaCheck()` y `check()`.
 
-```scala
-def toAttack(...): ... = {
-  // Código para el ataque
-}
+* Si una unidad es derrotada, deberá entregar la cantidad de estrellas a la unidad
+  victoriosa especificadas según el enunciado. Note que no todas las unidades entregan la
+  misma cantidad de estrellas.
 
-def toDefend(...): ... = {
-  // Código para defender
-}
+* Si una unidad es derrotada, deberá entregar la cantidad de victorias especificadas
+  al personaje según el enunciado.
 
-def toEvade(...): ... = {
-  // Código para evadir
-}
-```
-
-Además, se implementará el efecto de los paneles **Bonus** y **Drop**. Para esto, se creará
-un método ``apply`` en los paneles de la siguiente forma: (Tomado y modificado de EP4.md)
-
-```scala
-trait Panel {
-  def apply(...): ...
-}
-
-class BonusPanel extends Panel {
-  def apply(...): ... = {
-    // Código para el panel Bonus
-  }
-}
-```
-
-Esto se debe repetir tanto para los Paneles, como para las Norma.
-
-Se espera avanzar lo mas posible en esta tarea, para luego ver detalles de los antes descrito.
+Los dos últimos puntos se implementaron utilizando *Double Dispatch*.
 
 <div style="text-align:center;">
     <img src="https://i.creativecommons.org/l/by/4.0/88x31.png" alt="Creative Commons License">
