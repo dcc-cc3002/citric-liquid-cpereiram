@@ -1,6 +1,7 @@
 package cl.uchile.dcc.citric
 package model.character
 
+import cl.uchile.dcc.citric.model.character.wild.{Chicken, RoboBall, Seagull}
 import cl.uchile.dcc.citric.model.norma.Norma
 
 /** Represent a Character in the game, who should be a player or a Wild Unit, .
@@ -84,17 +85,79 @@ trait Character {
 
 
   //METHODS
-  /** A character can do damage. */
-  def doDamage(other: Character, damage: Int): Unit
+
+  /** Rolls a dice and returns a value between 1 to 6. */
+  def rollDice: Int
 
   /** Method that returns the state of the character. */
-  def isKo(): Boolean
+  def isKo: Boolean
 
-  /** Method */
-  def toAttack(): Unit
+  /** A character can attack another one.
+   *
+   * @param other Character that will be attacked.
+   * @param choice Boolean that represents if the attacked character will defend or evade.
+   *               True if the character will defend, false if the character will evade.
+   * */
+  def toAttack(other: Character, choice: Boolean): Unit
 
-  def toDefend(): Unit
+  /** A character can get attack by another one.
+   *
+   * @param other Character that will attack.
+   * @param choice Boolean that represents if the attacked character will defend or evade.
+   *               True if the character will defend, false if the character will evade. */
+  def toAttackByPlayer(other: PlayerCharacter, choice: Boolean): Unit
 
-  def toEvade(): Unit
+  /** A character can get attack by a Chicken.
+   *
+   * @param other  Character that will attack.
+   * @param choice Boolean that represents if the attacked character will defend or evade.
+   *               True if the character will defend, false if the character will evade. */
+  def toAttackByChicken(other: Chicken, choice: Boolean): Unit
+
+  /** A character can get attack by a Seagull
+   *
+   * @param other  Character that will attack.
+   * @param choice Boolean that represents if the attacked character will defend or evade.
+   *               True if the character will defend, false if the character will evade. */
+  def toAttackBySeagull(other: Seagull, choice: Boolean): Unit
+
+  /** A character can get attack by a RoboBall
+   *
+   * @param other  Character that will attack.
+   * @param choice Boolean that represents if the attacked character will defend or evade.
+   *               True if the character will defend, false if the character will evade. */
+  def toAttackByRoboBall(other: RoboBall, choice: Boolean): Unit
+
+
+  /** A character can defend against another one. */
+  def toDefend(other: Character): Unit
+
+  /** A PlayerCharacter can defend against a Character. */
+  def toDefendByPlayer(other: PlayerCharacter): Unit
+
+  /** A Chicken can defend against a Character. */
+  def toDefendByChicken(other: Chicken): Unit
+
+  /** A Seagull can defend against a Character. */
+  def toDefendBySeagull(other: Seagull): Unit
+
+  /** A RoboBall can defend against a Character. */
+  def toDefendByRoboBall(other: RoboBall): Unit
+
+
+  /** A character can evade an attack. */
+  def toEvade(other: Character): Unit
+
+  /** A PlayerCharacter can evade an attack from a Character. */
+  def toEvadeByPlayer(other: PlayerCharacter): Unit
+
+  /** A Chicken can evade an attack from a Character. */
+  def toEvadeByChicken(other: Chicken): Unit
+
+  /** A Seagull can evade an attack from a Character. */
+  def toEvadeBySeagull(other: Seagull): Unit
+
+  /** A RoboBall can evade an attack from a Character. */
+  def toEvadeByRoboBall(other: RoboBall): Unit
 
 }

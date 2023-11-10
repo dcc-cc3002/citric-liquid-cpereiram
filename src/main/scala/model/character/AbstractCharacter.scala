@@ -3,6 +3,7 @@ package model.character
 
 import cl.uchile.dcc.citric.model.norma.Norma
 import java.util.Objects
+import scala.util.Random
 
 /** An abstract class representing a Character.
  *
@@ -19,7 +20,8 @@ import java.util.Objects
  */
 abstract class AbstractCharacter(protected val _name: String,
                                  protected val _maxHp: Int,
-                                 protected var _stars: Int = 0)
+                                 protected var _stars: Int = 0,
+                                 protected val randomNumberGenerator: Random = new Random())
   extends Character {
 
   protected var _hp: Int
@@ -79,14 +81,9 @@ abstract class AbstractCharacter(protected val _name: String,
 
   //METHODS
   /// Documentation inherited from [[Character]]
-  override def doDamage(other: Character, damage: Int): Unit = {
-    var health: Int = other.hp - damage
-    if (health < 0) {
-      health = 0
-    }
-    other.hp_(health)
+  def rollDice(): Int = {
+    randomNumberGenerator.nextInt(6) + 1
   }
-
   /// Documentation inherited from [[Character]]
   override def isKo(): Boolean = {
     _hp == 0

@@ -1,6 +1,7 @@
 package cl.uchile.dcc.citric
 package model.character
 
+import cl.uchile.dcc.citric.model.character.wild.{AbstractWildCharacter, Chicken, RoboBall, Seagull}
 import cl.uchile.dcc.citric.model.norma.Norma
 
 import java.util.Objects
@@ -53,10 +54,11 @@ class PlayerCharacter( name: String,
                        protected var _norma: Norma,
                        stars: Int,
                        protected var _victories: Int,
-                       protected val randomNumberGenerator: Random = new Random())
+                       randomNumberGenerator: Random)
   extends AbstractCharacter(name,
                             maxHp,
-                            stars) with Equals{
+                            stars,
+                            randomNumberGenerator) with Equals{
 
   //GETTERS
   /** Returns the current norma of the character. */
@@ -116,11 +118,6 @@ class PlayerCharacter( name: String,
 
 
   //METHODS
-  /** Rolls a dice and returns a value between 1 to 6. */
-  def rollDice(): Int = {
-    randomNumberGenerator.nextInt(6) + 1
-  }
-
   /** Checks if the character has achieved the norma.
    * @return true if the character has achieved the norma, false otherwise.
    * */
@@ -128,11 +125,146 @@ class PlayerCharacter( name: String,
     norma.check(this)
   }
 
-  override def toAttack(): Unit = ???
+  def toAttack(other: Character, choice: Boolean): Unit = {
+    other.toAttackByPlayer(this, choice)
+  }
 
-  override def toDefend(): Unit = ???
+  def toAttackByPlayer(character: PlayerCharacter, choice: Boolean): Unit = {
+    if (choice) {
+      this.toDefend(character)
+    } else {
+      this.toEvade(character)
+    }
+  }
 
-  override def toEvade(): Unit = ???
+  def toAttackByChicken(character: Chicken, choice: Boolean): Unit = {
+    if (choice) {
+      this.toDefend(character)
+    } else {
+      this.toEvade(character)
+    }
+  }
+
+  def toAttackBySeagull(character: Seagull, choice: Boolean): Unit = {
+    if (choice) {
+      this.toDefend(character)
+    } else {
+      this.toEvade(character)
+    }
+  }
+
+  def toAttackByRoboBall(character: RoboBall, choice: Boolean): Unit = {
+    if (choice) {
+      this.toDefend(character)
+    } else {
+      this.toEvade(character)
+    }
+  }
+
+  override def toDefend(other: Character): Unit = {
+    other.toDefendByPlayer(this)
+  }
+
+  override def toDefendByPlayer(other: PlayerCharacter): Unit = {
+    val roll_defense = other.rollDice()
+    val roll_attack = this.rollDice()
+    val damage = 1.max(roll_attack + this.attack - roll_defense - other.defense)
+    other.hp_(other.hp - damage)
+    if (other.hp <= 0) {
+      other.stars_(other.stars / 2)
+      this.stars_(this.stars + other.stars)
+      this.victories_(this.victories + 2)
+    }
+  }
+
+  override def toDefendByChicken(other: Chicken): Unit = {
+    val roll_defense = other.rollDice()
+    val roll_attack = this.rollDice()
+    val damage = 1.max(roll_attack + this.attack - roll_defense - other.defense)
+    other.hp_(other.hp - damage)
+    if (other.hp <= 0) {
+      this.stars_(this.stars + other.stars + 3)
+      this.victories_(this.victories + 1)
+    }
+  }
+
+  override def toDefendBySeagull(other: Seagull): Unit = {
+    val roll_defense = other.rollDice()
+    val roll_attack = this.rollDice()
+    val damage = 1.max(roll_attack + this.attack - roll_defense - other.defense)
+    other.hp_(other.hp - damage)
+    if (other.hp <= 0) {
+      this.stars_(this.stars + other.stars + 2)
+      this.victories_(this.victories + 1)
+    }
+  }
+
+  override def toDefendByRoboBall(other: RoboBall): Unit = {
+    val roll_defense = other.rollDice()
+    val roll_attack = this.rollDice()
+    val damage = 1.max(roll_attack + this.attack - roll_defense - other.defense)
+    other.hp_(other.hp - damage)
+    if (other.hp <= 0) {
+      this.stars_(this.stars + other.stars + 2)
+      this.victories_(this.victories + 1)
+    }
+  }
 
 
+  override def toEvade(other: Character): Unit = {
+    other.toEvadeByPlayer(this)
+  }
+
+  override def toEvadeByPlayer(other: PlayerCharacter): Unit = {
+    val roll_evasion = other.rollDice()
+    val roll_attack = this.rollDice()
+    val damage = roll_attack + this.attack
+    if (roll_evasion + other.evasion <= damage) {
+      other.hp_(other.hp - damage)
+    }
+    if (other.hp <= 0) {
+      other.stars_(other.stars / 2)
+      this.stars_(this.stars + other.stars)
+      this.victories_(this.victories + 2)
+    }
+  }
+
+  override def toEvadeByChicken(other: Chicken): Unit = {
+    val roll_evasion = other.rollDice()
+    val roll_attack = this.rollDice()
+    val damage = roll_attack + this.attack
+    if (roll_evasion + other.evasion <= damage) {
+      other.hp_(other.hp - damage)
+    }
+    if (other.hp <= 0) {
+      this.stars_(this.stars + other.stars + 3)
+      this.victories_(this.victories + 1)
+    }
+  }
+
+  override def toEvadeBySeagull(other: Seagull): Unit = {
+    val roll_evasion = other.rollDice()
+    val roll_attack = this.rollDice()
+    val damage = roll_attack + this.attack
+    if (roll_evasion + other.evasion <= damage) {
+      other.hp_(other.hp - damage)
+    }
+    if (other.hp <= 0) {
+      this.stars_(this.stars + other.stars + 2)
+      this.victories_(this.victories + 1)
+    }
+  }
+
+  override def toEvadeByRoboBall(other: RoboBall): Unit = {
+    val roll_evasion = other.rollDice()
+    val roll_attack = this.rollDice()
+    val damage = roll_attack + this.attack
+    if (roll_evasion + other.evasion <= damage) {
+      other.hp_(other.hp - damage)
+    }
+    if (other.hp <= 0) {
+      this.stars_(this.stars + other.stars + 2)
+      this.victories_(this.victories + 1)
+    }
+  }
 }

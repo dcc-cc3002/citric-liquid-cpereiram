@@ -4,16 +4,11 @@ package model.character.wild
 import model.character.AbstractCharacter
 
 import java.util.Objects
+import scala.util.Random
 
 abstract class AbstractWildCharacter(name: String,
                                       maxHp: Int,
-                                      stars: Int)
-  extends AbstractCharacter(name, maxHp, stars){
-
-  //METHODS
-  override def toAttack(): Unit = ???
-
-  override def toDefend(): Unit = ???
-
-  override def toEvade(): Unit = ???
+                                      stars: Int,
+                                      randomNumberGenerator: Random)
+  extends AbstractCharacter(name, maxHp, stars, randomNumberGenerator){
 }
