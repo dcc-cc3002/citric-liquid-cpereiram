@@ -17,12 +17,12 @@ class Norma3(starMode: Boolean) extends AbstractNorma(starMode: Boolean) with Eq
   //FIELDS
   override protected val _starsRequired: Int = 70
   override protected val _victoriesRequired: Int = 6
-  override protected var _nextNorma: Norma4 = new Norma4(starMode)
+  override protected var _nextNorma: Norma = new Norma4(starMode)
 
 
   //GETTERS
   /// Documentation inherited from [[Norma]]
-  override def nextNorma: Norma4 = _nextNorma
+  override def nextNorma: Norma = _nextNorma
 
   //SETTERS
   /// Documentation inherited from [[Norma]]

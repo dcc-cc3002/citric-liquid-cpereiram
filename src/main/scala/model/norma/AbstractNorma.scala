@@ -14,12 +14,9 @@ abstract class AbstractNorma(protected val _starMode: Boolean) extends Norma {
   /// Documentation inherited from [[Norma]]
   override def victoriesRequired: Int = _victoriesRequired
 
-  /// Documentation inherited from [[Norma]]
-  override def nextNorma: Norma = _nextNorma
-
   //SETTERS
   /// Documentation inherited from [[Norma]]
-  def nextNorma_(newNorma: Norma): Unit = {
+  override def nextNorma_(newNorma: Norma): Unit = {
     _nextNorma = newNorma
   }
 

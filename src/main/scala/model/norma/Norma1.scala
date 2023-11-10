@@ -1,6 +1,6 @@
 package cl.uchile.dcc.citric
 package model.norma
-import model.character.PlayerCharacter
+
 
 import java.util.Objects
 
@@ -19,12 +19,13 @@ class Norma1(starMode: Boolean) extends AbstractNorma(starMode: Boolean) with Eq
   //FIELDS
   override protected val _starsRequired: Int = 10
   override protected val _victoriesRequired: Int = 1
-  override protected var _nextNorma: Norma2 = new Norma2(starMode)
+  override protected var _nextNorma: Norma = new Norma2(starMode)
 
 
   //GETTERS
   /// Documentation inherited from [[Norma]]
-  override def nextNorma: Norma2 = _nextNorma
+  override def nextNorma: Norma = _nextNorma
+
 
   //SETTERS
   /// Documentation inherited from [[Norma]]
