@@ -9,23 +9,11 @@ purpose is to serve as an educational tool, teaching foundational programming co
 
 ---
 
-## Tarea 2: Entrega Final
+## Tarea 3: Entrega Parcial 5
 
-En esta entrega final, se implementaron las siguientes funcionalidades:
+A continuación, se esboza una idea inicial del diagrama de estados del juego.
 
-* El efecto del Neutral Panel, utilizando el método `apply()`.
-
-* El efecto del Home Panel, *Norma Check*, utilizando una interacción desencadenada por
-* `apply()`, `normaCheck()` y `check()`.
-
-* Si una unidad es derrotada, deberá entregar la cantidad de estrellas a la unidad
-  victoriosa especificadas según el enunciado. Note que no todas las unidades entregan la
-  misma cantidad de estrellas.
-
-* Si una unidad es derrotada, deberá entregar la cantidad de victorias especificadas
-  al personaje según el enunciado.
-
-Los dos últimos puntos se implementaron utilizando *Double Dispatch*.
+![Diagrama de estados](docs/diagrama-estados.png)
 
 <div style="text-align:center;">
     <img src="https://i.creativecommons.org/l/by/4.0/88x31.png" alt="Creative Commons License">
