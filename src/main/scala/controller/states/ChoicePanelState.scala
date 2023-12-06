@@ -1,59 +1,47 @@
 package cl.uchile.dcc.citric
 package controller.states
 
-class ChoicePanelState extends GameState {
+import controller.GameController
+
+import cl.uchile.dcc.citric.controller.states.panel.{BonusPanelState, DropPanelState, EncounterPanelState, HomePanelState, NeutralPanelState}
+
+/**
+ * Class that represents the state of the game when the player is choosing a panel.
+ * @param context the context of the game.
+ */
+class ChoicePanelState(context: GameController) extends GameState(context) {
   /**
-   * Method that starts the game.
+   * Method that makes a transition to the BonusPanelState.
    */
-  override def startGame(): Unit = ???
+  override def chooseBonusPanel(): Unit = {
+    context.state = new BonusPanelState(context)
+  }
 
   /**
-   * Method that rolls the dice.
+   * Method that makes a transition to the DropPanelState.
    */
-  override def rollDice(): Unit = ???
+  override def chooseDropPanel(): Unit = {
+    context.state = new DropPanelState(context)
+  }
 
   /**
-   * Method that applies the effect of the current panel.
+   * Method that makes a transition to the EncounterPanelState.
    */
-  override def applyEffect(): Unit = ???
+  override def chooseEncounterPanel(): Unit = {
+    context.state = new EncounterPanelState(context)
+  }
 
   /**
-   * Method that chooses the panel to move to.
+   * Method that makes a transition to the HomePanelState.
    */
-  override def choosePanel(): Unit = ???
+  override def chooseHomePanel(): Unit = {
+    context.state = new HomePanelState(context)
+  }
 
   /**
-   * Method that moves the player to the next panel.
+   * Method that makes a transition to the NeutralPanelState.
    */
-  override def nextTurn(): Unit = ???
-
-  /**
-   * Method that ends the turn.
-   */
-  override def turnEnded(): Unit = ???
-
-  /**
-   * Method that change the game to the GameOverState.
-   */
-  override def endGame(): Unit = ???
-
-  /**
-   * Method that change the game to the StatingState.
-   */
-  override def newGame(): Unit = ???
-
-  /**
-   * Method that change the game to the Norma Check state.
-   */
-  override def normaCheck(): Unit = ???
-
-  /**
-   * Method that begins the battle against other players or a Wild unit.
-   */
-  override def beginBattle(): Unit = ???
-
-  /**
-   * Method that ends the battle.
-   */
-  override def endBattle(): Unit = ???
+  override def chooseNeutralPanel(): Unit = {
+    context.state = new NeutralPanelState(context)
+  }
 }
