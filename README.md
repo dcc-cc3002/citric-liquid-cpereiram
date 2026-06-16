@@ -9,12 +9,11 @@ purpose is to serve as an educational tool, teaching foundational programming co
 
 ---
 
-## For Students
+## Tarea 3: Entrega Parcial 5
 
-The remainder of this README is yours to complete. Take this opportunity to describe your
-contributions, the design decisions you've made, and any other information you deem necessary.
+A continuación, se esboza una idea inicial del diagrama de estados del juego.
 
-
+![Diagrama de estados](docs/diagrama-estados.png)
 
 <div style="text-align:center;">
     <img src="https://i.creativecommons.org/l/by/4.0/88x31.png" alt="Creative Commons License">
