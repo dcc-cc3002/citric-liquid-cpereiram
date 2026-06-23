@@ -9,11 +9,17 @@ purpose is to serve as an educational tool, teaching foundational programming co
 
 ---
 
-## For Students
+## Tarea 1: Entrega Parcial 2
 
-The remainder of this README is yours to complete. Take this opportunity to describe your
-contributions, the design decisions you've made, and any other information you deem necessary.
+En esta entrega, se comenzará a implementar la estructura inicial del tablero de juego.
 
+Para ello, se creará un trait de `Tablero` y otro de `Panel`.
+
+Luego, a estos le seguirán dos clases abstractas, `AbstractTablero` y `AbstractPanel`, 
+respectivamente, por medio de una herencia.
+
+De aquí, seguiendo con la herencia, se crearán las distintas subclases de Paneles, `NeutralPanel`,
+`HomePanel`, `BonusPanel`, `DropPanel`, `EncounterPanel`.
 
 
 <div style="text-align:center;">

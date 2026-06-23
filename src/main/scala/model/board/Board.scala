@@ -1,7 +1,8 @@
 package cl.uchile.dcc.citric
-package citric
+package model.board
 
-import cl.uchile.dcc.citric.citric.panel.Panel
+import cl.uchile.dcc.citric.model.board.panel.Panel
+import cl.uchile.dcc.citric.model.character.PlayerCharacter
 
 import scala.collection.mutable.ArrayBuffer
 
